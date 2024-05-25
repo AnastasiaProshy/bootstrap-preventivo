@@ -44,63 +44,79 @@
     </header>
 
     <main class="container pt-4">
-        <form>
-            <div>
-                <!-- Communication -->
-                <h3>Request a Quote</h3>
-                <p>Please complete the form to receive a quote for our development services.</p>
-            </div>
+        <div class="row">
             <!-- Form -->
-
-            <!-- Name -->
-            <div class="mb-3">
-                <label for="userNname" class="form-label">Name</label>
-                <input type="text" class="form-control" id="">
+            <form class="col-md-8">
+                <div>
+                    <!-- Communication -->
+                    <h2>Request a Quote</h2>
+                    <p>Please complete the form to receive a quote for our development services.</p>
+                </div>
+                <!-- Form -->
+    
+                <!-- Name -->
+                <div class="mb-3">
+                    <label for="userNname" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="">
+                </div>
+                <!-- Surname -->
+                <div class="mb-3">
+                    <label for="userSurname" class="form-label">Surname</label>
+                    <input type="text" class="form-control" id="">
+                </div>
+                <!-- Email -->
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="">
+                </div>
+                <!-- Kind of job -->
+                <select class="form-select mb-3" aria-label="Default select example">
+                    <option selected>Choose the category of work</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+                <!-- Additional information -->
+                <div class="mb-3">
+                    <label for="" class="form-label">Additional information</label>
+                    <textarea class="form-control" id="" rows="3"></textarea>
+                </div>
+                <!-- Promo -->
+                <div class="mb-3">
+                    <label for="userNname" class="form-label">My BossLevelPromo Code (optional)</label>
+                    <input type="text" class="form-control" id="">
+                </div>
+                <!-- Privacy Policy -->
+                <div class="mb-4 form-check">
+                    <input type="checkbox" class="form-check-input" id="">
+                    <label class="form-check-label" for="exampleCheck1">I accept the Privacy Policy, I'll agree to almost
+                        anything for a good service!</label>
+                </div>
+                <!-- Button & Price Display-->
+                <div class="mx-auto text-center">
+                    <button type="submit" class="btn btn-primary btn-lg">Calculate Quote</button>
+                    <!-- The calculated price -->
+                    <h5 class="pt-3 text-center"><strong>Final price</strong></h5>
+                </div>
+            </form>
+            
+            <!-- Card -->
+            <div class="col-md-4 p-3 h-100">
+                <div class="card border-1">
+                    <img src="/img/300x200.png" class="card-img" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Get in touch with us</h5>
+                        <p class="card-text">Need a hero? Our team is just a click away, don’t hesitate to reach out:</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">help@boolfactory.test</li>
+                        <li class="list-group-item">+1122334455</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="#" class="card-link">Help desk</a>
+                    </div>
             </div>
-            <!-- Surname -->
-            <div class="mb-3">
-                <label for="userSurname" class="form-label">Surname</label>
-                <input type="text" class="form-control" id="">
             </div>
-            <!-- Email -->
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="">
-            </div>
-            <!-- Kind of job -->
-            <select class="form-select mb-3" aria-label="Default select example">
-                <option selected>Choose the category of work</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-            <!-- Additional information -->
-            <div class="mb-3">
-                <label for="" class="form-label">Additional information</label>
-                <textarea class="form-control" id="" rows="3"></textarea>
-            </div>
-            <!-- Promo -->
-            <div class="mb-3">
-                <label for="userNname" class="form-label">My BossLevelPromo Code (optional)</label>
-                <input type="text" class="form-control" id="">
-            </div>
-            <!-- Privacy Policy -->
-            <div class="mb-4 form-check">
-                <input type="checkbox" class="form-check-input" id="">
-                <label class="form-check-label" for="exampleCheck1">I accept the Privacy Policy, I'll agree to almost
-                    anything for a good service!</label>
-            </div>
-            <!-- Button & Price Display-->
-            <div class="mx-auto text-center">
-                <button type="submit" class="btn btn-primary">Calculate Quote</button>
-                <!-- The calculated price -->
-                <p class="pt-3 text-center"><strong>Final price</strong></p>
-            </div>
-        </form>
-
-        <!-- Card -->
-        <div>
-            Our contacts
         </div>
 
     </main>
