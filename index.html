@@ -21,14 +21,29 @@
 <body>
     <header>
         <!-- Navbar & Logo -->
-        <nav>
-            <div>
-                <a class="navbar-brand" href="#">Bool Factory</a>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+            <div class="container">
+                <a class="navbar-brand text-light" href="#">Bool Factory</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active text-secondary" aria-current="page" href="#">Home</a>
+                        <li class="nav-item">
+                            <a class="nav-link active text-secondary" aria-current="page" href="#">Services</a>
+                        <li class="nav-item">
+                            <a class="nav-link active text-secondary" aria-current="page" href="#">Contacts</a>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
 
-    <main class="container">
+    <main class="container pt-4">
         <form>
             <div>
                 <!-- Communication -->
@@ -36,7 +51,7 @@
                 <p>Please complete the form to receive a quote for our development services.</p>
             </div>
             <!-- Form -->
-            
+
             <div>
                 Name
                 Surname
@@ -74,6 +89,10 @@
 
     <!-- JavaScript -->
     <script src="/main.js"></script>
+    <!-- js bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 
 </body>
 
