@@ -67,7 +67,7 @@
                     <label for="user-email" class="form-label">Email address</label>
                     <input type="email" class="form-control" id="user-email">
                 </div>
-                <!-- Kind of job -->
+                <!-- Type of work -->
                 <div class="mb-3">
                     <label for="user-work" class="form-label">Type of work</label>
                     <select id="user-work" class="form-select" aria-label="Default seletc example">
@@ -77,6 +77,9 @@
                             Development</option>
                         <option value="Analysis">Project Analysis</option>
                     </select>
+                    <div id="type-work" class="text-danger d-none">
+                        Please enter valid type of work.
+                    </div>
                 </div>
                 <!-- Additional information -->
                 <div class="mb-3">

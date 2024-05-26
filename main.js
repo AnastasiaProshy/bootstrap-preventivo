@@ -4,10 +4,6 @@
 const formPreventive = document.getElementById('preventive-form');
 console.log(formPreventive);
 
-//price list
-let price = 0;
-let finalPrice = 0;
-
 
 //take care of submitting the form. The form values will be read here.
 formPreventive.addEventListener('submit', function (event) {
@@ -21,6 +17,7 @@ formPreventive.addEventListener('submit', function (event) {
     const userPromo = document.getElementById('user-promo').value;
     const checkPolicy = document.getElementById('check-policy');
     const promoError = document.getElementById('promo-error');
+    const workType = document.getElementById('type-work');
 
     console.log(userName.value);
     console.log(userSurname.value);
@@ -30,41 +27,55 @@ formPreventive.addEventListener('submit', function (event) {
     console.log(userPromo.value);
     console.log(checkPolicy.value);
 
-    //computing operations
-
-    switch (userWork) {
-        case 'Backend':
-            price = 20.50;
-            break;
-        case 'Frontend':
-            price = 15.30;
-            break;
-        case 'Analysis':
-            price = 33.60;
-            break;
-        default:
-    }
-
-    if (userPromo === '') {
-        finalPrice = price * 10;
-        promoError.classList.add('d-none');
-    }
-    else if (userPromo === 'YHDNU32'
-        || userPromo === 'JANJC63'
-        || userPromo === 'PWKCN25'
-        || userPromo === 'SJDPO96'
-        || userPromo === 'POCIE24') {
-        finalPrice = price * 10 * 0.75;
-        promoError.classList.add('d-none');
-    }
-    else {
-        finalPrice = price * 10;
-        promoError.classList.remove('d-none');
-    }
-
     //result +- discount
-    let resultPrice = finalPrice.toFixed(2).toString().split(".");
+    let resultPrice = (checkPromo(userPromo, switchPrice(userWork))).toFixed(2).toString().split(".");
     document.getElementById('result-integer').innerText = `€ ${resultPrice[0]}`;
     document.getElementById('result-decimals').innerText = `,${resultPrice[1]}`;
 
+    //computing operations
+
+    function switchPrice(userWork) {
+        let price = 0;
+        switch (userWork) {
+            case 'Backend':
+                price = 20.50;
+                break;
+            case 'Frontend':
+                price = 15.30;
+                break;
+            case 'Analysis':
+                price = 33.60;
+                break;
+            default:
+                workType.classList.remove('d-none');
+        }
+        return price;
+    }
+
+
+
+    function checkPromo(userPromo, price) {
+        let finalPrice = 0;
+        if (userPromo === '') {
+            finalPrice = price * 10;
+            promoError.classList.add('d-none');
+        }
+        else if (userPromo === 'YHDNU32'
+            || userPromo === 'JANJC63'
+            || userPromo === 'PWKCN25'
+            || userPromo === 'SJDPO96'
+            || userPromo === 'POCIE24') {
+            finalPrice = price * 10 * 0.75;
+            promoError.classList.add('d-none');
+        }
+        else {
+            finalPrice = price * 10;
+            promoError.classList.remove('d-none');
+        }
+        return finalPrice;
+    }
+
+
 });
+
+
