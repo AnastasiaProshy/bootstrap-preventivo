@@ -46,7 +46,7 @@
     <main class="container pt-4 pb-5">
         <div class="row">
             <!-- Form -->
-            <form class="col-md-8">
+            <form id="preventive-form" class="col-md-8">
                 <!-- Communication -->
                 <div>
                     <h2>Request a Quote</h2>
@@ -54,45 +54,44 @@
                 </div>
                 <!-- Name -->
                 <div class="mb-3">
-                    <label for="userNname" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="">
+                    <label for="user-name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="user-name">
                 </div>
                 <!-- Surname -->
                 <div class="mb-3">
-                    <label for="userSurname" class="form-label">Surname</label>
-                    <input type="text" class="form-control" id="">
+                    <label for="user-surname" class="form-label">Surname</label>
+                    <input type="text" class="form-control" id="user-surname">
                 </div>
                 <!-- Email -->
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="">
+                    <label for="user-email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="user-email">
                 </div>
                 <!-- Kind of job -->
-                <div>
-                    <label for="userJob" class="form-label">Kind of job</label>
-                    <select class="form-select mb-3" aria-label="Default select example">
+                <div class="mb-3">
+                    <label for="user-job" class="form-label">Kind of job</label>
+                    <select id="user-job" class="form-select" aria-label="Default seletc example">
                         <option selected>Choose the category of work</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="Backend">Backend Development</option>
+                        <option value="Frontend"> Frontend
+                            Development</option>
+                        <option value="Analysis">Project Analysis</option>
                     </select>
                 </div>
                 <!-- Additional information -->
                 <div class="mb-3">
-                    <label for="" class="form-label">Additional information</label>
-                    <textarea class="form-control" id="" rows="3"></textarea>
+                    <label for="additional-info" class="form-label">Additional information</label>
+                    <textarea class="form-control" id="additional-info" rows="3"></textarea>
                 </div>
                 <!-- Promo -->
                 <div class="mb-3">
-                    <label for="userNname" class="form-label">My BossLevelPromo Code (optional)</label>
-                    <input type="text" class="form-control" id="">
+                    <label for="user-promo" class="form-label">My BossLevelPromo Code (optional)</label>
+                    <input type="text" class="form-control" id="user-promo">
                 </div>
                 <!-- Privacy Policy -->
                 <div class="mb-4 form-check">
-                    <input type="checkbox" class="form-check-input" id="">
-                    <label class="form-check-label" for="exampleCheck1">I accept the Privacy Policy, I'll agree to
-                        almost
-                        anything for a good service!</label>
+                    <input type="checkbox" class="form-check-input" id="check-policy">
+                    <label class="form-check-label" for="check-policy">I accept the Privacy Policy, I'll agree to almost anything for a good service!</label>
                 </div>
                 <!-- Button & Price Display-->
                 <div class="text-center row p-md-5 mb-4 mb-md-0">
@@ -102,7 +101,7 @@
                     <div class="col-md-6 mt-3 mt-md-0">
                         <h5 class=""><strong>Final price</strong></h5>
                         <!-- The calculated price -->
-                        <h3><strong>€ 0,00</strong></h3>
+                        <h3><strong id="result">€ 0,00</strong></h3>
                     </div>
                 </div>
             </form>
