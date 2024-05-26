@@ -5,8 +5,8 @@ const formPreventive = document.getElementById('preventive-form');
 console.log(formPreventive);
 
 //price list
-let price;
-let finalPrice;
+let price = 0;
+let finalPrice = 0;
 
 
 //take care of submitting the form. The form values will be read here.
@@ -46,7 +46,7 @@ formPreventive.addEventListener('submit', function (event) {
     }
 
     if (userPromo === '') {
-        finalPrice = price * 10 + ' - Full Price';
+        finalPrice = ((price * 10).toFixed(2)).toString();
         promoError.classList.add('d-none');
     }
     else if (userPromo === 'YHDNU32'
@@ -54,15 +54,17 @@ formPreventive.addEventListener('submit', function (event) {
         || userPromo === 'PWKCN25'
         || userPromo === 'SJDPO96'
         || userPromo === 'POCIE24') {
-        finalPrice = price * 10 * 0.75 + ' - 25% Discount';
+        finalPrice = ((price * 10 * 0.75).toFixed(2)).toString();
         promoError.classList.add('d-none');
     }
     else {
-        finalPrice = price * 10 + ' - Full Price';
+        finalPrice = ((price * 10).toFixed(2)).toString();
         promoError.classList.remove('d-none');
     }
 
     //result +- discount
-    document.getElementById('result').innerText = `€ ${finalPrice}`;
+    let resultPrice = finalPrice.split(".");
+    document.getElementById('result-integer').innerText = `€ ${resultPrice[0]}`;
+    document.getElementById('result-decimals').innerText = `,${resultPrice[1]}`;
 
 });
