@@ -4,7 +4,6 @@
 const formPreventive = document.getElementById('preventive-form');
 console.log(formPreventive);
 
-
 //take care of submitting the form. The form values will be read here.
 formPreventive.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -32,30 +31,32 @@ formPreventive.addEventListener('submit', function (event) {
     document.getElementById('result-integer').innerText = `€ ${resultPrice[0]}`;
     document.getElementById('result-decimals').innerText = `,${resultPrice[1]}`;
 
-    //computing operations
-
+    /*computing operations
+    price*/
     function switchPrice(userWork) {
         let price = 0;
         switch (userWork) {
             case 'Backend':
                 price = 20.50;
+                workType.classList.add('d-none');
                 break;
             case 'Frontend':
                 price = 15.30;
+                workType.classList.add('d-none');
                 break;
             case 'Analysis':
                 price = 33.60;
+                workType.classList.add('d-none');
                 break;
             default:
                 workType.classList.remove('d-none');
         }
         return price;
     }
-
-
-
+    //promo
     function checkPromo(userPromo, price) {
         let finalPrice = 0;
+        userPromo = userPromo.toUpperCase();
         if (userPromo === '') {
             finalPrice = price * 10;
             promoError.classList.add('d-none');
@@ -74,8 +75,5 @@ formPreventive.addEventListener('submit', function (event) {
         }
         return finalPrice;
     }
-
-
 });
-
 
