@@ -5,7 +5,8 @@ const formPreventive = document.getElementById('preventive-form');
 console.log(formPreventive);
 
 //price list
-
+let price;
+let finalPrice;
 
 
 //take care of submitting the form. The form values will be read here.
@@ -17,7 +18,7 @@ formPreventive.addEventListener('submit', function (event) {
     const userEmail = document.getElementById('user-email');
     const userWork = document.getElementById('user-work').value;
     const userAdditional = document.getElementById('additional-info');
-    const userPromo = document.getElementById('user-promo');
+    const userPromo = document.getElementById('user-promo').value;
     const checkPolicy = document.getElementById('check-policy');
 
     console.log(userName.value);
@@ -32,22 +33,30 @@ formPreventive.addEventListener('submit', function (event) {
 
     switch (userWork) {
         case 'Backend':
+            price = 20.50;
             break;
         case 'Frontend':
+            price = 15.30;
             break;
         case 'Analysis':
+            price = 33.60;
             break;
         default:
     }
 
+    if (userPromo === '') {
+        finalPrice = price * 10;
+    }
+    else if (userPromo === 'YHDNU32'
+        || userPromo === 'JANJC63'
+        || userPromo === 'PWKCN25'
+        || userPromo === 'SJDPO96'
+        || userPromo === 'POCIE24') {
+        finalPrice = price * 10 * 0.75;
+    }
+    else { }
 
-
-
-
-
-
-
-    //calculation result
-    document.getElementById('result').innerText = '€ 0,01';
+    //result
+    document.getElementById('result').innerText = `€ ${finalPrice}`;
 
 });
