@@ -46,7 +46,7 @@ formPreventive.addEventListener('submit', function (event) {
     }
 
     if (userPromo === '') {
-        finalPrice = ((price * 10).toFixed(2)).toString();
+        finalPrice = price * 10;
         promoError.classList.add('d-none');
     }
     else if (userPromo === 'YHDNU32'
@@ -54,16 +54,16 @@ formPreventive.addEventListener('submit', function (event) {
         || userPromo === 'PWKCN25'
         || userPromo === 'SJDPO96'
         || userPromo === 'POCIE24') {
-        finalPrice = ((price * 10 * 0.75).toFixed(2)).toString();
+        finalPrice = price * 10 * 0.75;
         promoError.classList.add('d-none');
     }
     else {
-        finalPrice = ((price * 10).toFixed(2)).toString();
+        finalPrice = price * 10;
         promoError.classList.remove('d-none');
     }
 
     //result +- discount
-    let resultPrice = finalPrice.split(".");
+    let resultPrice = finalPrice.toFixed(2).toString().split(".");
     document.getElementById('result-integer').innerText = `€ ${resultPrice[0]}`;
     document.getElementById('result-decimals').innerText = `,${resultPrice[1]}`;
 
