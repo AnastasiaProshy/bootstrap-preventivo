@@ -20,6 +20,7 @@ formPreventive.addEventListener('submit', function (event) {
     const userAdditional = document.getElementById('additional-info');
     const userPromo = document.getElementById('user-promo').value;
     const checkPolicy = document.getElementById('check-policy');
+    const promoError = document.getElementById('promo-error');
 
     console.log(userName.value);
     console.log(userSurname.value);
@@ -45,18 +46,23 @@ formPreventive.addEventListener('submit', function (event) {
     }
 
     if (userPromo === '') {
-        finalPrice = price * 10;
+        finalPrice = price * 10 + ' - Full Price';
+        promoError.classList.add('d-none');
     }
     else if (userPromo === 'YHDNU32'
         || userPromo === 'JANJC63'
         || userPromo === 'PWKCN25'
         || userPromo === 'SJDPO96'
         || userPromo === 'POCIE24') {
-        finalPrice = price * 10 * 0.75;
+        finalPrice = price * 10 * 0.75 + ' - 25% Discount';
+        promoError.classList.add('d-none');
     }
-    else { }
+    else {
+        finalPrice = price * 10 + ' - Full Price';
+        promoError.classList.remove('d-none');
+    }
 
-    //result
+    //result +- discount
     document.getElementById('result').innerText = `€ ${finalPrice}`;
 
 });
