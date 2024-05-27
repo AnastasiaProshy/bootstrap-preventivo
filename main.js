@@ -73,7 +73,7 @@ formPreventive.addEventListener('submit', function (event) {
             || userPromo === 'SJDPO96'
             || userPromo === 'POCIE24') {
             finalPrice = price * 10 * 0.75;
-            promoError.classList.remove('d-none');
+            promoError.classList.add('d-none');
             phraseAPromo.classList.remove('d-none');
             phraseBPromo.classList.add('d-none');
             phraseBPromo.classList.add('d-none');
