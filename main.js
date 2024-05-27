@@ -17,6 +17,9 @@ formPreventive.addEventListener('submit', function (event) {
     const checkPolicy = document.getElementById('check-policy');
     const promoError = document.getElementById('promo-error');
     const workType = document.getElementById('type-work');
+    const phraseAPromo = document.getElementById('promo-phrase1');
+    const phraseBPromo = document.getElementById('promo-phrase2');
+    const phraseCPromo = document.getElementById('promo-phrase3');
 
     console.log(userName.value);
     console.log(userSurname.value);
@@ -60,6 +63,9 @@ formPreventive.addEventListener('submit', function (event) {
         if (userPromo === '') {
             finalPrice = price * 10;
             promoError.classList.add('d-none');
+            phraseAPromo.classList.add('d-none');
+            phraseBPromo.classList.add('d-none');
+            phraseCPromo.classList.remove('d-none');
         }
         else if (userPromo === 'YHDNU32'
             || userPromo === 'JANJC63'
@@ -67,11 +73,18 @@ formPreventive.addEventListener('submit', function (event) {
             || userPromo === 'SJDPO96'
             || userPromo === 'POCIE24') {
             finalPrice = price * 10 * 0.75;
-            promoError.classList.add('d-none');
+            promoError.classList.remove('d-none');
+            phraseAPromo.classList.remove('d-none');
+            phraseBPromo.classList.add('d-none');
+            phraseBPromo.classList.add('d-none');
         }
         else {
             finalPrice = price * 10;
             promoError.classList.remove('d-none');
+            phraseAPromo.classList.add('d-none');
+            phraseBPromo.classList.remove('d-none');
+            phraseCPromo.classList.add('d-none');
+
         }
         return finalPrice;
     }
