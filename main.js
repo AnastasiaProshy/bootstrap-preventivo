@@ -2,57 +2,49 @@
 
 //read the form
 const formPreventive = document.getElementById('preventive-form');
-console.log(formPreventive);
 
 //take care of submitting the form. The form values will be read here.
 formPreventive.addEventListener('submit', function (event) {
     event.preventDefault();
 
-    const userName = document.getElementById('user-name');
-    const userSurname = document.getElementById('user-surname');
-    const userEmail = document.getElementById('user-email');
-    const userWork = document.getElementById('user-work').value;
-    const userAdditional = document.getElementById('additional-info');
-    const userPromo = document.getElementById('user-promo').value;
-    const checkPolicy = document.getElementById('check-policy');
+    const enterValidWork = document.getElementById('valid-work');
     const promoError = document.getElementById('promo-error');
-    const workType = document.getElementById('type-work');
-    const phraseAPromo = document.getElementById('promo-phrase1');
-    const phraseBPromo = document.getElementById('promo-phrase2');
-    const phraseCPromo = document.getElementById('promo-phrase3');
+    const activePromo = document.getElementById('promo-25%');
+    const wrongPromo = document.getElementById('promo-wrong');
+    const missedPromo = document.getElementById('promo-missed');
 
-    console.log(userName.value);
-    console.log(userSurname.value);
-    console.log(userEmail.value);
-    console.log(userWork.value);
-    console.log(userAdditional.value);
-    console.log(userPromo.value);
-    console.log(checkPolicy.value);
+    [enterValidWork, promoError, activePromo, wrongPromo, missedPromo].forEach(element => element.classList.add('d-none'));
 
-    //result +- discount
+    const [userWork, userPromo] = ['user-work', 'user-promo'].map(id => document.getElementById(id).value);
+
+    console.log(userWork);
+    console.log(userPromo);
+    console.log(document.getElementById('user-name').value);
+    console.log(document.getElementById('user-surname').value);
+    console.log(document.getElementById('user-email').value);
+    console.log(document.getElementById('additional-info').value);
+    console.log(document.getElementById('check-policy').checked ? 'on' : 'off');
+
+    //result 
     let resultPrice = (checkPromo(userPromo, switchPrice(userWork))).toFixed(2).toString().split(".");
     document.getElementById('result-integer').innerText = `€ ${resultPrice[0]}`;
     document.getElementById('result-decimals').innerText = `,${resultPrice[1]}`;
 
-    /*computing operations
-    price*/
+    /*computing operations price*/
     function switchPrice(userWork) {
         let price = 0;
         switch (userWork) {
             case 'Backend':
                 price = 20.50;
-                workType.classList.add('d-none');
                 break;
             case 'Frontend':
                 price = 15.30;
-                workType.classList.add('d-none');
                 break;
             case 'Analysis':
                 price = 33.60;
-                workType.classList.add('d-none');
                 break;
             default:
-                workType.classList.remove('d-none');
+                enterValidWork.classList.remove('d-none');
         }
         return price;
     }
@@ -62,10 +54,7 @@ formPreventive.addEventListener('submit', function (event) {
         userPromo = userPromo.toUpperCase();
         if (userPromo === '') {
             finalPrice = price * 10;
-            promoError.classList.add('d-none');
-            phraseAPromo.classList.add('d-none');
-            phraseBPromo.classList.add('d-none');
-            phraseCPromo.classList.remove('d-none');
+            missedPromo.classList.remove('d-none');
         }
         else if (userPromo === 'YHDNU32'
             || userPromo === 'JANJC63'
@@ -73,20 +62,14 @@ formPreventive.addEventListener('submit', function (event) {
             || userPromo === 'SJDPO96'
             || userPromo === 'POCIE24') {
             finalPrice = price * 10 * 0.75;
-            promoError.classList.add('d-none');
-            phraseAPromo.classList.remove('d-none');
-            phraseBPromo.classList.add('d-none');
-            phraseBPromo.classList.add('d-none');
+            activePromo.classList.remove('d-none');
         }
         else {
             finalPrice = price * 10;
             promoError.classList.remove('d-none');
-            phraseAPromo.classList.add('d-none');
-            phraseBPromo.classList.remove('d-none');
-            phraseCPromo.classList.add('d-none');
-
+            wrongPromo.classList.remove('d-none');
         }
         return finalPrice;
     }
-});
 
+});

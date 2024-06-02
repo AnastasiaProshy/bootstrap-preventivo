@@ -55,17 +55,17 @@
                 <!-- Name -->
                 <div class="mb-3">
                     <label for="user-name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="user-name">
+                    <input type="text" class="form-control" id="user-name" placeholder="name">
                 </div>
                 <!-- Surname -->
                 <div class="mb-3">
                     <label for="user-surname" class="form-label">Surname</label>
-                    <input type="text" class="form-control" id="user-surname">
+                    <input type="text" class="form-control" id="user-surname" placeholder="surname">
                 </div>
                 <!-- Email -->
                 <div class="mb-3">
                     <label for="user-email" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="user-email">
+                    <input type="email" class="form-control" id="user-email" placeholder="your@mail">
                 </div>
                 <!-- Type of work -->
                 <div class="mb-3">
@@ -73,25 +73,29 @@
                     <select id="user-work" class="form-select" aria-label="Default seletc example">
                         <option selected>Choose the category of work</option>
                         <option value="Backend">Backend Development</option>
-                        <option value="Frontend"> Frontend
-                            Development</option>
+                        <option value="Frontend"> Frontend Development</option>
                         <option value="Analysis">Project Analysis</option>
                     </select>
-                    <div id="type-work" class="text-danger d-none">
-                        Please enter valid type of work.
+                    <div id="valid-work" class="text-danger d-none">
+                        Please enter valid type of work
                     </div>
                 </div>
+
+                <!-- prova select -->
+                <!-- <div class="mb-3" id="select"></div> -->
+
                 <!-- Additional information -->
                 <div class="mb-3">
                     <label for="additional-info" class="form-label">Additional information</label>
-                    <textarea class="form-control" id="additional-info" rows="3"></textarea>
+                    <textarea class="form-control" id="additional-info" rows="3"
+                        placeholder="Enter extra info"></textarea>
                 </div>
                 <!-- Promo -->
                 <div class="mb-3">
-                    <label for="user-promo" class="form-label">My BossLevelPromo Code (optional)</label>
-                    <input type="text" class="form-control" id="user-promo">
+                    <label for="user-promo" class="form-label">My Code</label>
+                    <input type="text" class="form-control" id="user-promo" placeholder=" BossLevelPromo (optional)">
                     <div id="promo-error" class="text-danger d-none">
-                        Please enter valid promotion.
+                        Please enter valid promotion
                     </div>
 
 
@@ -114,14 +118,14 @@
                                 id="result-decimals"></strong>
                         </h3>
                         <!-- Promo phrases -->
-                    <div class="mt-3">
-                        <span id="promo-phrase1" class="d-none">Promo entered! The 25% discount says hello!</span>
-                        <span id="promo-phrase2" class="d-none">Oops, wrong promo! No discount for you, try
-                            again!</span>
-                        <span id="promo-phrase3" class="d-none">Full price spotted! The promo is on vacation?</span>
+                        <div class="mt-3">
+                            <span id="promo-25%" class="d-none">Promo entered! The 25% discount says hello!</span>
+                            <span id="promo-wrong" class="d-none">Oops, wrong promo! No discount for you, try
+                                again!</span>
+                            <span id="promo-missed" class="d-none">Full price spotted! The promo is on vacation?</span>
+                        </div>
                     </div>
-                    </div>
-                    
+
                 </div>
             </form>
             <!-- Card -->
@@ -146,7 +150,7 @@
     </main>
     <footer>
         <!-- Copyright -->
-        <div class=" text-center bg-body-tertiary py-4" data-bs-theme="dark">
+        <div class="text-center bg-body-tertiary py-4" data-bs-theme="dark">
             <p class="text-light"><i class="bi bi-c-circle"> </i>2024 - All rights reserved</p>
         </div>
     </footer>
