@@ -13,17 +13,20 @@ formPreventive.addEventListener('submit', function (event) {
     const wrongPromo = document.getElementById('promo-wrong');
     const missedPromo = document.getElementById('promo-missed');
 
+    //page allerts d-none
     [enterValidWork, promoError, activePromo, wrongPromo, missedPromo].forEach(element => element.classList.add('d-none'));
 
+    //used variables
     const [userWork, userPromo] = ['user-work', 'user-promo'].map(id => document.getElementById(id).value);
-
     console.log(userWork);
     console.log(userPromo);
+
+    ////not used variables
     console.log(document.getElementById('user-name').value);
     console.log(document.getElementById('user-surname').value);
     console.log(document.getElementById('user-email').value);
     console.log(document.getElementById('additional-info').value);
-    console.log(document.getElementById('check-policy').checked ? 'on' : 'off');
+    console.log(document.getElementById('check-policy').checked ? 'on' : 'off');  // ? = if
 
     //result 
     let resultPrice = (checkPromo(userPromo, switchPrice(userWork))).toFixed(2).toString().split(".");
